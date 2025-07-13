@@ -24,7 +24,22 @@ end
 --               the level of recursion. This
 --               parameter is set internally and
 --               must be omitted
--- @example      print_table({a={b={c=132}}})
+-- @example      
+-- print_table(
+--     {
+--         a={
+--             a1 = 564,
+--             a2 = 432,
+--             b = {
+--                 b1={
+--                     b11 = 999
+--                 },
+--                 c=132
+--             },
+--             a3 = 333
+--         }
+--     }
+-- )
 function print_table(tbl, _depth)
     _depth = _depth or 0
     tbl = tbl or {}
@@ -37,4 +52,3 @@ function print_table(tbl, _depth)
         end
     end
 end
-

@@ -23,7 +23,6 @@ while true do
        
        send_message(message)
        print(message)
-       disks/15/RxLua-master-16edbf9f
        sleep()
        count = count + 1   
     until count == messageLimit

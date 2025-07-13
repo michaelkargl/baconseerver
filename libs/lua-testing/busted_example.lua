@@ -1,0 +1,10 @@
+-- turns the test file into a standalone executable (no need for the busted CLI)
+require 'busted.runner'()
+
+describe("Busted unit testing framework", function()
+    describe("should be awesome", function()
+        it("should be easy to use", function()
+            assert.truthy(true)
+        end)
+    end)
+end)

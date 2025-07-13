@@ -105,7 +105,7 @@ local function OptionParser(t)
 
   function o.fail(s) -- extension
     io.stderr:write(s .. '\n')
-    os.exit(1)
+    t.exit_fn(1)
   end
 
   function o.add_option(optdesc)
@@ -151,11 +151,11 @@ local function OptionParser(t)
     end
     if options.help then
       o.print_help()
-      os.exit()
+      t.exit_fn()
     end
     if options.version then
       io.stdout:write(t.version .. "\n")
-      os.exit()
+      t.exit_fn()
     end
     return options, args
   end

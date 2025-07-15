@@ -1,0 +1,12 @@
+[submodule "hello-craftos/tests/luaunit"]
+	path = hello-craftos/tests/luaunit
+	url = https://github.com/bluebird75/luaunit.git
+[submodule "hello-craftos/tests/busted"]
+	path = hello-craftos/tests/busted
+	url = https://github.com/Olivine-Labs/busted.git
+[submodule "hello-craftos/tests/telescope"]
+	path = hello-craftos/tests/telescope
+	url = https://github.com/norman/telescope.git
+[submodule "hello-craftos/tests/minctest-lua"]
+	path = hello-craftos/tests/minctest-lua
+	url = https://github.com/codeplea/minctest-lua.git

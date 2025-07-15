@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "jackmacwindows.vscode-computercraft",
+        "jackmacwindows.craftos-pc",
+        "sumneko.lua",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "gruntfuggly.todo-tree"
+    ]
+}

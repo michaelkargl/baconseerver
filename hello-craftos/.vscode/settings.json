@@ -1,0 +1,7 @@
+{
+    // https://www.craftos-pc.cc/docs/mounter
+    "craftos-pc.additionalArguments": "--mount host=/",
+    
+    // https://github.com/sumneko/lua-language-server/wiki/Privacy-Policy
+    "Lua.telemetry.enable": false
+}

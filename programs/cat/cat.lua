@@ -43,3 +43,5 @@ end
 for line in fs.head(filePath, -1) do
     print(line)
 end
+
+return status_codes.OK

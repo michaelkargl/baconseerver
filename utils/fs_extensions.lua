@@ -2,9 +2,14 @@ require 'string_extensions'
 
 -- @param relative_path <string>
 -- @return <string> absolute path
-function fs.resolve(relative_path)
+function fs.resolve(path)
+    local already_absolute = not string.startsWith(path, './') and not string.startsWith(path, '../')
+    if already_absolute then
+        return path
+    end
+    
     local working_dir = shell.dir()
-    local absolute_path = '/'..fs.combine(working_dir, relative_path)
+    local absolute_path = '/'..fs.combine(working_dir, path)
     return absolute_path
 end
 

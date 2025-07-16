@@ -1,3 +1,7 @@
+package.path = package.path .. ";../../utils/?.lua"
+
+require "fs_extensions"
+
 local args = { ... }
 local status_codes = {
     OK = 0,
@@ -6,11 +10,12 @@ local status_codes = {
     ERROR = 1,
 }
 
-
+-- @return void
 function print_help()
     print "Usage:"
     print "cat <file>"
 end
+
 
 if ( #args == 0 ) then
     print_help()
@@ -23,7 +28,7 @@ if ( #args > 1 ) then
    return status_codes.INVALID_ARGUMENT_COUNT
 end
 
-local filePath = args[1]
+local filePath = fs.resolve(args[1])
 
 if ( not fs.exists(filePath) ) then
     print("File ["..filePath.. "] not found.")
@@ -35,8 +40,6 @@ if ( fs.isDir(filePath) ) then
     return status_codes.FILE_NOT_FOUND
 end
 
-if ( filePath)
-
-
-print(filePath)
-print(#args)
+for line in io.lines(filePath) do
+    print(line)
+end

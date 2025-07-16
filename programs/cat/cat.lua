@@ -40,6 +40,6 @@ if ( fs.isDir(filePath) ) then
     return status_codes.FILE_NOT_FOUND
 end
 
-for line in io.lines(filePath) do
+for line in fs.head(filePath, -1) do
     print(line)
 end

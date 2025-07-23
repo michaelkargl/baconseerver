@@ -1,6 +1,48 @@
 -- https://basalt.madefor.cc/references/main.html
 local basalt = require('basalt')
 
+
+
+-- @summary draws a 45 degree dialgonal line
+-- @param canvas <basalt_canvas>
+-- @param top_left_pos <vector2> xy line origin
+-- @param length <vector2> length of the vertical line. Use negative to draw aline from right to left.
+-- @param color <colors> optional
+-- @param bg_color <colors> optional
+-- @param edge_char <char> optional characters at the beginning and end
+-- @example draw_hline(main:getCanvas(), vector.new(1,2,3), 10)
+function draw_diagonal(canvas, top_left_pos, length, color, bg_color, edge_char)
+    if color == nil then color = colors.black end
+    if bg_color == nil then bg_color = colors.white end
+    if edge_char == nil then edge_char = 'o' end
+
+    local line_char = ''
+    local bottom_right = nil
+    
+    if length < 1 then
+        -- line from right to left
+        bottom_right = vector.new(top_left_pos.x + length, top_left_pos.y - length, 0)
+        line_char = '/'
+    else
+        -- line from left to right
+        bottom_right = vector.new(top_left_pos.x + length, top_left_pos.y + length, 0)
+        line_char = '\\'
+    end
+
+    canvas:line(
+        top_left_pos.x,
+        top_left_pos.y,
+        bottom_right.x,
+        bottom_right.y,
+        line_char,
+        color,
+        bg_color,
+        edge_char)
+    -- edges
+    canvas:text(top_left_pos.x, top_left_pos.y, edge_char, color, bg_color)
+    canvas:text(bottom_right.x, bottom_right.y, edge_char, color, bg_color)
+end
+
 -- @summary draws a horizontal line
 -- @param canvas <basalt_canvas>
 -- @param pos <vector2> xy line origin
@@ -84,4 +126,7 @@ function draw_frame(canvas, pos, size, color, bg_color)
     -- top, bottom
     draw_hline(canvas, top_left, size.x, color, bg_color, corner_char)
     draw_hline(canvas, bottom_left, size.x, color, bg_color, corner_char)
+    -- diagonals
+    draw_diagonal(canvas, top_left, 5, color, bg_color, corner_char)
+    draw_diagonal(canvas, top_right, -5, color, bg_color, corner_char)
 end

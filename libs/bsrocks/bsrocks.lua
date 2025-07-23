@@ -1179,8 +1179,10 @@ local currentSettings = {
 	patchDirectory = "/rocks-patch",
 	installDirectory = "/rocks",
 	servers = {
-		'https://raw.githubusercontent.com/SquidDev-CC/Blue-Shiny-Rocks/rocks/',
-		'http://luarocks.org/',
+		'https://luarocks.org/m/root/',
+		--'http://luarocks.org/',
+		--'https://raw.githubusercontent.com/SquidDev-CC/Blue-Shiny-Rocks/rocks/',
+		-- 'https://raw.githubusercontent.com/michaelkargl/lua-rocks-manifest/refs/heads/master/'
 	},
 	tries = 3,
 	existing = {
